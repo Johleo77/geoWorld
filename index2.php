@@ -29,6 +29,7 @@ $desPays = getCountriesByContinent($continent);
 
 
 
+
 ?>
 
 <main role="main" class="flex-shrink-0">
@@ -48,6 +49,8 @@ $desPays = getCountriesByContinent($continent);
            <th>Capital</th>
            <th>Chef d'Etat</th>
            <th>Gouvernement</th>
+           <th>Langue officiel</th>
+
            
 
 
@@ -61,14 +64,18 @@ $desPays = getCountriesByContinent($continent);
             <td> <?php if(!empty($pays->Capital)){ echo getByCapital($pays->Capital); } else { echo "vide"; } ?></td>
             <td> <?php echo $pays->HeadOfState?></td>
             <td> <?php echo $pays->GovernmentForm?></td>
+            <td> <?php echo getLangue( $pays->id )?></td>
+
+
+
             
             
 
 
 
           </tr>
-        <?php } ?>
-
+      
+       <?php } ?>
      </table>
     </div>
     

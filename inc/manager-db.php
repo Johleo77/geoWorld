@@ -95,3 +95,15 @@ function getNBPays()
     $query = 'SELECT COUNT(*) as NBPays FROM Country ';
     return $pdo->query($query)->fetch()->NBPays;
 }
+function getLangue($id)
+{
+    global $pdo;
+    $query = 'SELECT Language.`Name`as NAME FROM `Language`, `Country`,`CountryLanguage`
+    WHERE Country.id = CountryLanguage.idCountry
+    AND CountryLanguage.idLanguage = Language.id
+    AND Country.id = :id AND IsOfficial = "T"';
+    $prep = $pdo->prepare($query);
+    $prep->bindValue(':id', $id, PDO::PARAM_STR);
+    $prep->execute();
+    return $prep->fetch()->NAME;
+}
