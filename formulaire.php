@@ -1,9 +1,18 @@
-<form action="formulaire.php" method="post">
-   <label>Nom du :</label>
-   <input name="nom" id="nom" type="text" />
+<?php  require_once 'header.php';
 
-   <label>Votre âge :</label>
-   <input name="age" id="age" type="number" /></p>
+require_once 'inc/manager-db.php';
+require_once 'index2.php';
 
-   <button type="submit">Valider</button>
-</form>
+
+
+
+if(isset($_GET['continent'])){
+  $continent = $_GET['continent'];
+} else {
+  $continent = "Asia";
+}
+
+?>
+
+<tr>
+   <td> <img src="ImagesC/<?php echo $continent?>.png"></td>

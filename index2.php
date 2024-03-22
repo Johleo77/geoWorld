@@ -58,7 +58,7 @@ $desPays = getCountriesByContinent($continent);
        <?php foreach ($desPays as $pays){ ?>
           <tr>
             <td> <img src="images/drapeau/<?php if(($pays->Code2)){ echo strtolower($pays->Code2); } else {echo "as.png";} ?>.png"></td>
-            <td> <a href="formulaire.php"><?php echo $pays->Name?></td>
+            <td> <a href="formulaire.php?continent=<?php echo $pays->Continent?>"><?php echo $pays->Name?></td>
             <td> <?php echo $pays->Population ?></td>
             <td> <?php echo $pays->Continent?></td>
             <td> <?php if(!empty($pays->Capital)){ echo getByCapital($pays->Capital); } else { echo "vide"; } ?></td>
